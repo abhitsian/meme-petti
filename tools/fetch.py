@@ -13,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CLIPS = ROOT / "public" / "clips"
-MAX_SECONDS = 12
+MAX_SECONDS = 13
 CACHE = ROOT / ".cache"
 
 

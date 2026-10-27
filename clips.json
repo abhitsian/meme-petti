@@ -72,6 +72,114 @@
   "end": "2:31"
  },
  {
+  "id": "kenaththa-kaanom",
+  "label": "Aiyya, en kenaththa kaanom!",
+  "actor": "Vadivelu",
+  "movie": "Kannum Kannum",
+  "url": "https://www.youtube.com/watch?v=eY-McoKErFo",
+  "start": "1:52.5",
+  "end": "1:59.6"
+ },
+ {
+  "id": "kenaththa-sathiyama",
+  "label": "Sathiyama kenaththa dhaan kaanom, kandupidichu kudunga",
+  "actor": "Vadivelu",
+  "movie": "Kannum Kannum",
+  "url": "https://www.youtube.com/watch?v=eY-McoKErFo",
+  "start": "2:09.4",
+  "end": "2:17"
+ },
+ {
+  "id": "giri-romba-nallavan",
+  "label": "Evvalavu adichaalum thaangaraan, ivan romba nallavan",
+  "actor": "Vadivelu",
+  "movie": "Giri",
+  "url": "https://www.youtube.com/watch?v=jtjvgm5Xxbs",
+  "start": "1:32.5",
+  "end": "1:44.5"
+ },
+ {
+  "id": "maappu-aappu",
+  "label": "Avanukkum serthu dhaanda… vechuttaanya aappu",
+  "actor": "Vadivelu",
+  "movie": "Chandramukhi",
+  "url": "https://www.youtube.com/watch?v=sIiIGJUJ0EI",
+  "start": "0:50.5",
+  "end": "0:57.5"
+ },
+ {
+  "id": "avan-dhaan-rowdy",
+  "label": "Ondiya ninnu adi vaangraan paaru, avan dhaanda rowdy",
+  "actor": "Vadivelu",
+  "movie": "Thalai Nagaram",
+  "url": "https://www.youtube.com/watch?v=Up4Ly4YFxU4",
+  "start": "2:52.2",
+  "end": "3:00"
+ },
+ {
+  "id": "vazhaipazham",
+  "label": "Rendu pazham… onnu irukku, innonnu enga?",
+  "actor": "Goundamani",
+  "movie": "Karakattakaran",
+  "url": "https://www.youtube.com/watch?v=jnpzmPIRxtg",
+  "start": "0:51.5",
+  "end": "1:01.5"
+ },
+ {
+  "id": "pokkiri-mudivu",
+  "label": "Oru vaati mudivu pannitten na, en pecha naane kekka maatten",
+  "actor": "Vijay",
+  "movie": "Pokkiri",
+  "url": "https://www.youtube.com/watch?v=gBGCt-R_rbc",
+  "start": "0:39.8",
+  "end": "0:46.5"
+ },
+ {
+  "id": "nanbenda",
+  "label": "Nanbenda nanbendannu solli aappu adichittiyeda",
+  "actor": "Santhanam",
+  "movie": "Boss Engira Bhaskaran",
+  "url": "https://www.youtube.com/watch?v=3NC1CuXuqLQ",
+  "start": "7:47.5",
+  "end": "7:55"
+ },
+ {
+  "id": "parotta-42",
+  "label": "42 dhaanda… ella kodaiyum azhi, modhalla irundhu saapdren",
+  "actor": "Soori",
+  "movie": "Vennila Kabadi Kuzhu",
+  "url": "https://www.youtube.com/watch?v=a2a6t-4WMgI",
+  "start": "5:06",
+  "end": "5:17.8"
+ },
+ {
+  "id": "singam-single",
+  "label": "Panni dhaan koottama varum, singam single-aa dhaan varum",
+  "actor": "Rajinikanth",
+  "movie": "Sivaji",
+  "url": "https://www.youtube.com/watch?v=V4LMbo7WyHs",
+  "start": "0:08",
+  "end": "0:18.8"
+ },
+ {
+  "id": "muthu-eppo-varuven",
+  "label": "Naan eppo varuven, eppadi varuvennu yaarukkum theriyaadhu",
+  "actor": "Rajinikanth",
+  "movie": "Muthu",
+  "url": "https://www.youtube.com/watch?v=ob_koqqiZyQ",
+  "start": "0:00",
+  "end": "0:07"
+ },
+ {
+  "id": "annamalai-calendar",
+  "label": "Ashok! Indha naal un calendar-la kurichu vechukko",
+  "actor": "Rajinikanth",
+  "movie": "Annamalai",
+  "url": "https://www.youtube.com/watch?v=Tm-uxfHOuLs",
+  "start": "0:00",
+  "end": "0:12.8"
+ },
+ {
   "id": "enna-kodumai-saravanan",
   "label": "Enna kodumai Saravanan idhu",
   "actor": "Prabhu",
@@ -118,13 +226,12 @@
  },
  {
   "id": "naanum-rowdy",
-  "label": "Naanum rowdy dhaan",
+  "label": "Jail-ku poren… naanum periya rowdy dhaan",
   "actor": "Vadivelu",
-  "query": "naanum rowdy than vadivelu jail meme template",
-  "match": [
-   "rowdy",
-   "jail"
-  ]
+  "movie": "Thalai Nagaram",
+  "url": "https://www.youtube.com/watch?v=Up4Ly4YFxU4",
+  "start": "3:38",
+  "end": "3:45.5"
  },
  {
   "id": "chinna-pulla-thanama",
@@ -221,13 +328,9 @@
   "label": "Petromax light-ae dhaan venuma?",
   "actor": "Goundamani",
   "movie": "Vaidehi Kaathirunthaal",
-  "query": "goundamani petromax light comedy",
-  "match": [
-   "petromax"
-  ],
-  "avoid": [
-   "k73EBd8mDyo"
-  ]
+  "url": "https://www.youtube.com/watch?v=InlahAKgZGE",
+  "start": "5:22",
+  "end": "5:33.5"
  },
  {
   "id": "goundamani-dei",

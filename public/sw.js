@@ -1,6 +1,6 @@
 // Precache the shell and every clip so the board works offline.
 // Bump VERSION when clips change (tools/fetch.py does this).
-const VERSION = '8d407f43';
+const VERSION = '3a4fabb9';
 self.window = self;
 importScripts('clips.js');
 const SHELL = ['./', 'index.html', 'clips.js', 'manifest.webmanifest', 'icon.svg', 'icon-192.png', 'icon-512.png', 'og.png'];

@@ -64,6 +64,102 @@ window.CLIPS = [
   "seconds": 9.5
  },
  {
+  "id": "kenaththa-kaanom",
+  "label": "Aiyya, en kenaththa kaanom!",
+  "actor": "Vadivelu",
+  "movie": "Kannum Kannum",
+  "file": "clips/kenaththa-kaanom.mp3",
+  "seconds": 7.1
+ },
+ {
+  "id": "kenaththa-sathiyama",
+  "label": "Sathiyama kenaththa dhaan kaanom, kandupidichu kudunga",
+  "actor": "Vadivelu",
+  "movie": "Kannum Kannum",
+  "file": "clips/kenaththa-sathiyama.mp3",
+  "seconds": 7.6
+ },
+ {
+  "id": "giri-romba-nallavan",
+  "label": "Evvalavu adichaalum thaangaraan, ivan romba nallavan",
+  "actor": "Vadivelu",
+  "movie": "Giri",
+  "file": "clips/giri-romba-nallavan.mp3",
+  "seconds": 12.0
+ },
+ {
+  "id": "maappu-aappu",
+  "label": "Avanukkum serthu dhaanda… vechuttaanya aappu",
+  "actor": "Vadivelu",
+  "movie": "Chandramukhi",
+  "file": "clips/maappu-aappu.mp3",
+  "seconds": 7.0
+ },
+ {
+  "id": "avan-dhaan-rowdy",
+  "label": "Ondiya ninnu adi vaangraan paaru, avan dhaanda rowdy",
+  "actor": "Vadivelu",
+  "movie": "Thalai Nagaram",
+  "file": "clips/avan-dhaan-rowdy.mp3",
+  "seconds": 7.8
+ },
+ {
+  "id": "vazhaipazham",
+  "label": "Rendu pazham… onnu irukku, innonnu enga?",
+  "actor": "Goundamani",
+  "movie": "Karakattakaran",
+  "file": "clips/vazhaipazham.mp3",
+  "seconds": 10.0
+ },
+ {
+  "id": "pokkiri-mudivu",
+  "label": "Oru vaati mudivu pannitten na, en pecha naane kekka maatten",
+  "actor": "Vijay",
+  "movie": "Pokkiri",
+  "file": "clips/pokkiri-mudivu.mp3",
+  "seconds": 6.7
+ },
+ {
+  "id": "nanbenda",
+  "label": "Nanbenda nanbendannu solli aappu adichittiyeda",
+  "actor": "Santhanam",
+  "movie": "Boss Engira Bhaskaran",
+  "file": "clips/nanbenda.mp3",
+  "seconds": 7.5
+ },
+ {
+  "id": "parotta-42",
+  "label": "42 dhaanda… ella kodaiyum azhi, modhalla irundhu saapdren",
+  "actor": "Soori",
+  "movie": "Vennila Kabadi Kuzhu",
+  "file": "clips/parotta-42.mp3",
+  "seconds": 11.8
+ },
+ {
+  "id": "singam-single",
+  "label": "Panni dhaan koottama varum, singam single-aa dhaan varum",
+  "actor": "Rajinikanth",
+  "movie": "Sivaji",
+  "file": "clips/singam-single.mp3",
+  "seconds": 10.5
+ },
+ {
+  "id": "muthu-eppo-varuven",
+  "label": "Naan eppo varuven, eppadi varuvennu yaarukkum theriyaadhu",
+  "actor": "Rajinikanth",
+  "movie": "Muthu",
+  "file": "clips/muthu-eppo-varuven.mp3",
+  "seconds": 7.0
+ },
+ {
+  "id": "annamalai-calendar",
+  "label": "Ashok! Indha naal un calendar-la kurichu vechukko",
+  "actor": "Rajinikanth",
+  "movie": "Annamalai",
+  "file": "clips/annamalai-calendar.mp3",
+  "seconds": 12.8
+ },
+ {
   "id": "enna-kodumai-saravanan",
   "label": "Enna kodumai Saravanan idhu",
   "actor": "Prabhu",
@@ -87,10 +183,11 @@ window.CLIPS = [
  },
  {
   "id": "naanum-rowdy",
-  "label": "Naanum rowdy dhaan",
+  "label": "Jail-ku poren… naanum periya rowdy dhaan",
   "actor": "Vadivelu",
+  "movie": "Thalai Nagaram",
   "file": "clips/naanum-rowdy.mp3",
-  "seconds": 12.0
+  "seconds": 7.5
  },
  {
   "id": "chinna-pulla-thanama",
@@ -141,6 +238,14 @@ window.CLIPS = [
   "actor": "Vadivelu",
   "file": "clips/aiyo-aiyo.mp3",
   "seconds": 8.1
+ },
+ {
+  "id": "petromax-light",
+  "label": "Petromax light-ae dhaan venuma?",
+  "actor": "Goundamani",
+  "movie": "Vaidehi Kaathirunthaal",
+  "file": "clips/petromax-light.mp3",
+  "seconds": 11.5
  },
  {
   "id": "goundamani-dei",
