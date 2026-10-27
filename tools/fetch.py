@@ -14,6 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 CLIPS = ROOT / "public" / "clips"
 MAX_SECONDS = 12
+CACHE = ROOT / ".cache"
 
 
 def search(query, n=15):
@@ -41,21 +42,44 @@ def pick(clip):
     return None
 
 
+def seconds(ts):
+    """'1:19.5' -> 79.5"""
+    total = 0.0
+    for part in str(ts).split(":"):
+        total = total * 60 + float(part)
+    return total
+
+
+def download(url):
+    """Full audio of a video, cached so several clips from one scene download once."""
+    CACHE.mkdir(exist_ok=True)
+    vid = re.search(r"(?:v=|youtu\.be/|shorts/)([\w-]{11})", url)
+    key = vid.group(1) if vid else hashlib.sha1(url.encode()).hexdigest()[:11]
+    hit = next(CACHE.glob(f"{key}.*"), None)
+    if not hit:
+        subprocess.run(["yt-dlp", "--no-update", "-q", "-f", "bestaudio/best",
+                        "-o", str(CACHE / f"{key}.%(ext)s"), "--", url], check=True)
+        hit = next(CACHE.glob(f"{key}.*"))
+    return hit
+
+
 def cut(url, dest, start=None, end=None):
-    with tempfile.TemporaryDirectory() as tmp:
-        raw = Path(tmp) / "raw"
-        cmd = ["yt-dlp", "--no-update", "-q", "-f", "bestaudio/best", "-o", f"{raw}.%(ext)s"]
-        if start is not None:
-            cmd += ["--download-sections", f"*{start}-{end}"]
-        subprocess.run(cmd + [url], check=True)
-        src = next(Path(tmp).glob("raw.*"))
+    src = download(url)
+    if start is not None:
+        # Exact window from captions: cut precisely, keep the edges as given.
+        s, e = seconds(start), seconds(end)
+        length = min(e - s, MAX_SECONDS)
+        window, trim = ["-ss", str(s), "-t", str(length)], ""
+    else:
+        length = MAX_SECONDS
+        window = ["-t", str(MAX_SECONDS)]
         trim = ("silenceremove=start_periods=1:start_threshold=-45dB,"
                 "areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse,")
-        subprocess.run(
-            ["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-t", str(MAX_SECONDS),
-             "-af", trim + "loudnorm=I=-16:TP=-1.5,afade=t=out:st=%d:d=0.4" % (MAX_SECONDS - 0.4),
-             "-ac", "1", "-ar", "44100", "-b:a", "64k", str(dest)],
-            check=True)
+    subprocess.run(
+        ["ffmpeg", "-y", "-loglevel", "error", *window, "-i", str(src),
+         "-af", trim + "loudnorm=I=-16:TP=-1.5,afade=t=out:st=%.2f:d=0.3" % (length - 0.3),
+         "-ac", "1", "-ar", "44100", "-b:a", "64k", str(dest)],
+        check=True)
 
 
 def duration(path):

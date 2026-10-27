@@ -1,5 +1,69 @@
 window.CLIPS = [
  {
+  "id": "nesamani-thevaiyillatha-aani",
+  "label": "Nee pudungradhu poorame thevaiyillatha aani dhaan",
+  "actor": "Vadivelu",
+  "movie": "Friends",
+  "file": "clips/nesamani-thevaiyillatha-aani.mp3",
+  "seconds": 10.0
+ },
+ {
+  "id": "nesamani-aaniye-pudunga-venam",
+  "label": "Aaniye pudunga venaam",
+  "actor": "Vadivelu",
+  "movie": "Friends",
+  "file": "clips/nesamani-aaniye-pudunga-venam.mp3",
+  "seconds": 5.0
+ },
+ {
+  "id": "nesamani-first-dead-body",
+  "label": "Furniture mela kai vecha first dead body nee dhaanda",
+  "actor": "Vadivelu",
+  "movie": "Friends",
+  "file": "clips/nesamani-first-dead-body.mp3",
+  "seconds": 6.0
+ },
+ {
+  "id": "nesamani-vethalai-paakku",
+  "label": "Ungalukku vethalai paakku vechu azhaikkanuma?",
+  "actor": "Vadivelu",
+  "movie": "Friends",
+  "file": "clips/nesamani-vethalai-paakku.mp3",
+  "seconds": 5.5
+ },
+ {
+  "id": "nesamani-suvarukku-valikkum",
+  "label": "Mella mella, suvarukku valikkum… paradesi, karumam",
+  "actor": "Vadivelu",
+  "movie": "Friends",
+  "file": "clips/nesamani-suvarukku-valikkum.mp3",
+  "seconds": 7.5
+ },
+ {
+  "id": "nesamani-suthi",
+  "label": "Aiyo, suthiyala nadu mandaiyileye potten da",
+  "actor": "Vadivelu",
+  "movie": "Friends",
+  "file": "clips/nesamani-suthi.mp3",
+  "seconds": 6.5
+ },
+ {
+  "id": "nesamani-seruppaalaye",
+  "label": "Un pechai kettu… seruppaalaye adikkanum da",
+  "actor": "Vadivelu",
+  "movie": "Friends",
+  "file": "clips/nesamani-seruppaalaye.mp3",
+  "seconds": 8.5
+ },
+ {
+  "id": "nesamani-velai-seiyama",
+  "label": "Vela seiyama paathukka, adhu dhaan un vela",
+  "actor": "Vadivelu",
+  "movie": "Friends",
+  "file": "clips/nesamani-velai-seiyama.mp3",
+  "seconds": 9.5
+ },
+ {
   "id": "enna-kodumai-saravanan",
   "label": "Enna kodumai Saravanan idhu",
   "actor": "Prabhu",

@@ -124,7 +124,10 @@ let audio = null, playingCard = null, raf = 0;
 
 const shareIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>';
 
-const actors = ['All', ...new Set(clips.map(c => c.actor).filter(Boolean))];
+// Chips: every actor, plus any movie with 3+ clips (e.g. Friends for Nesamani).
+const movieCounts = clips.reduce((m, c) => (c.movie && (m[c.movie] = (m[c.movie] || 0) + 1), m), {});
+const actors = ['All', ...Object.keys(movieCounts).filter(m => movieCounts[m] >= 3),
+  ...new Set(clips.map(c => c.actor).filter(Boolean))];
 chipsEl.innerHTML = actors.map(a => `<button class="chip" aria-pressed="${a === actor}">${a}</button>`).join('');
 chipsEl.addEventListener('click', e => {
   const b = e.target.closest('.chip'); if (!b) return;
@@ -136,7 +139,7 @@ q.addEventListener('input', render);
 
 function render() {
   const term = q.value.trim().toLowerCase();
-  const list = clips.filter(c => (actor === 'All' || c.actor === actor) &&
+  const list = clips.filter(c => (actor === 'All' || c.actor === actor || c.movie === actor) &&
     (!term || [c.label, c.actor, c.movie].join(' ').toLowerCase().includes(term)));
   grid.innerHTML = list.map(c => `
     <button class="card" data-id="${c.id}">
