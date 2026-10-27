@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meme Petti</title>
+<meta name="description" content="Tamil movie comedy dialogues as a pocket soundboard. Tap to play, share to WhatsApp.">
+<meta property="og:title" content="Meme Petti">
+<meta property="og:description" content="Tamil comedy dialogues in your pocket. Tap to play, send on WhatsApp.">
+<meta property="og:image" content="https://abhitsian.github.io/meme-petti/og.png">
+<meta property="og:url" content="https://abhitsian.github.io/meme-petti/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1a1208">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Mukta+Malar:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1a1208;
+    --surface: #2a1d0e;
+    --surface-hi: #3a2812;
+    --ink: #fff4e0;
+    --ink-dim: #c9b28c;
+    --accent: #ffb703;
+    --accent-ink: #1a1208;
+    --hot: #e63946;
+    --line: #4a3418;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); }
+  body {
+    font-family: "Mukta Malar", system-ui, sans-serif;
+    min-height: 100dvh;
+    padding: env(safe-area-inset-top) 16px calc(24px + env(safe-area-inset-bottom));
+  }
+  header { padding: 20px 0 12px; text-align: center; }
+  h1 {
+    font-family: Anton, Impact, sans-serif; font-weight: 400;
+    font-size: clamp(40px, 12vw, 64px); line-height: .9; margin: 0;
+    letter-spacing: .02em; color: var(--accent);
+    text-shadow: 3px 3px 0 var(--hot);
+  }
+  .tag { color: var(--ink-dim); font-size: 13px; margin-top: 8px; }
+  .controls { position: sticky; top: 0; z-index: 5; background: var(--bg); padding: 10px 0; }
+  input[type=search] {
+    width: 100%; font: inherit; font-size: 16px; color: var(--ink);
+    background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+    padding: 12px 18px; outline: none;
+  }
+  input[type=search]:focus { border-color: var(--accent); }
+  .chips { display: flex; gap: 8px; overflow-x: auto; padding: 10px 0 2px; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip {
+    flex: none; font: 600 13px "Mukta Malar", sans-serif; color: var(--ink-dim);
+    background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px;
+  }
+  .chip[aria-pressed=true] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-top: 8px; }
+  .card {
+    position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;
+    min-height: 118px; padding: 14px; border-radius: var(--radius);
+    background: var(--surface); border: 1px solid var(--line); text-align: left; color: var(--ink);
+    font: inherit; cursor: pointer; transition: transform .08s;
+  }
+  .card:active { transform: scale(.97); }
+  .card.playing { border-color: var(--accent); background: var(--surface-hi); }
+  .card .label { font-family: Anton, Impact, sans-serif; font-size: 19px; line-height: 1.1; letter-spacing: .01em; }
+  .card .meta { color: var(--ink-dim); font-size: 12px; margin-top: 10px; padding-right: 40px; }
+  .card .bar { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: var(--accent); }
+  .share {
+    position: absolute; right: 8px; bottom: 8px; width: 36px; height: 36px; border-radius: 50%;
+    display: grid; place-items: center; background: var(--bg); border: 1px solid var(--line); color: var(--ink);
+  }
+  .share svg { width: 17px; height: 17px; }
+  .empty { color: var(--ink-dim); text-align: center; padding: 40px 0; }
+  .install {
+    display: none; margin: 18px 4px 0; font: 600 14px "Mukta Malar", sans-serif; color: var(--accent-ink);
+    background: var(--accent); border: 0; border-radius: 999px; padding: 12px 22px;
+  }
+  .hint { color: var(--ink-dim); font-size: 12px; text-align: center; margin-top: 22px; line-height: 1.5; }
+  .toast {
+    position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); transform: translateX(-50%);
+    background: var(--ink); color: var(--bg); font-size: 14px; padding: 10px 16px; border-radius: 999px;
+    opacity: 0; transition: opacity .2s; pointer-events: none;
+  }
+  .toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+<header>
+  <h1>MEME PETTI</h1>
+  <div class="tag">Tap to play · ↗ to send on WhatsApp</div>
+</header>
+
+<div class="controls">
+  <input type="search" id="q" placeholder="Search a dialogue…" autocomplete="off">
+  <div class="chips" id="chips"></div>
+</div>
+
+<main class="grid" id="grid"></main>
+<div class="empty" id="empty" hidden>Onnum kidaikala. Try another word.</div>
+
+<div style="text-align:center">
+  <button class="install" id="install">Install on this phone</button>
+  <button class="install" id="share-board" style="display:inline-block">Share Meme Petti with friends</button>
+</div>
+<p class="hint" id="hint">To install: Android Chrome → menu → <b>Add to Home screen</b>. iPhone Safari → Share → <b>Add to Home Screen</b>.</p>
+<div class="toast" id="toast"></div>
+
+<script src="clips.js"></script>
+<script>
+const clips = window.CLIPS || [];
+const grid = document.getElementById('grid');
+const q = document.getElementById('q');
+const chipsEl = document.getElementById('chips');
+let actor = 'All';
+let audio = null, playingCard = null, raf = 0;
+
+const shareIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>';
+
+const actors = ['All', ...new Set(clips.map(c => c.actor).filter(Boolean))];
+chipsEl.innerHTML = actors.map(a => `<button class="chip" aria-pressed="${a === actor}">${a}</button>`).join('');
+chipsEl.addEventListener('click', e => {
+  const b = e.target.closest('.chip'); if (!b) return;
+  actor = b.textContent;
+  chipsEl.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c === b));
+  render();
+});
+q.addEventListener('input', render);
+
+function render() {
+  const term = q.value.trim().toLowerCase();
+  const list = clips.filter(c => (actor === 'All' || c.actor === actor) &&
+    (!term || [c.label, c.actor, c.movie].join(' ').toLowerCase().includes(term)));
+  grid.innerHTML = list.map(c => `
+    <button class="card" data-id="${c.id}">
+      <span class="label">${c.label}</span>
+      <span class="meta">${[c.actor, c.movie].filter(Boolean).join(' · ')} · ${c.seconds}s</span>
+      <span class="share" role="button" aria-label="Share ${c.label}">${shareIcon}</span>
+      <span class="bar"></span>
+    </button>`).join('');
+  document.getElementById('empty').hidden = list.length > 0;
+}
+
+grid.addEventListener('click', e => {
+  const card = e.target.closest('.card'); if (!card) return;
+  const clip = clips.find(c => c.id === card.dataset.id);
+  if (e.target.closest('.share')) share(clip); else play(clip, card);
+});
+
+function stop() {
+  if (audio) { audio.pause(); audio = null; }
+  if (playingCard) { playingCard.classList.remove('playing'); playingCard.querySelector('.bar').style.width = 0; }
+  cancelAnimationFrame(raf); playingCard = null;
+}
+
+function play(clip, card) {
+  const same = playingCard === card;
+  stop();
+  if (same) return;
+  audio = new Audio(clip.file);
+  playingCard = card; card.classList.add('playing');
+  const bar = card.querySelector('.bar');
+  const tick = () => {
+    if (!audio) return;
+    bar.style.width = (audio.currentTime / (audio.duration || clip.seconds) * 100) + '%';
+    raf = requestAnimationFrame(tick);
+  };
+  audio.addEventListener('ended', stop);
+  audio.play().then(tick).catch(() => { stop(); toast('Could not play this clip'); });
+}
+
+async function share(clip) {
+  try {
+    const blob = await (await fetch(clip.file)).blob();
+    const file = new File([blob], `${clip.label.replace(/[^\w\s-]/g, '').trim()}.mp3`, { type: 'audio/mpeg' });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({ files: [file], title: clip.label });
+      return;
+    }
+    const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: file.name });
+    a.click(); toast('Saved. Attach it in WhatsApp.');
+  } catch (err) {
+    if (err.name !== 'AbortError') toast('Share failed');
+  }
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+let deferred;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault(); deferred = e;
+  document.getElementById('install').style.display = 'inline-block';
+});
+document.getElementById('install').addEventListener('click', async () => {
+  if (!deferred) return;
+  deferred.prompt(); await deferred.userChoice; deferred = null;
+  document.getElementById('install').style.display = 'none';
+});
+document.getElementById('share-board').addEventListener('click', async () => {
+  const url = location.origin + location.pathname;
+  const text = 'Tamil comedy meme soundboard. Tap to play, send to WhatsApp, add to home screen 😂';
+  try {
+    if (navigator.share) return await navigator.share({ title: 'Meme Petti', text, url });
+    await navigator.clipboard.writeText(`${text}\n${url}`); toast('Link copied');
+  } catch (err) {
+    if (err.name !== 'AbortError') window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`);
+  }
+});
+if (matchMedia('(display-mode: standalone)').matches) document.getElementById('hint').hidden = true;
+
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+render();
+</script>
+</body>
+</html>

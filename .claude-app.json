@@ -1,0 +1,8 @@
+{
+  "name": "Meme Petti (Tamil meme soundboard)",
+  "type": "static",
+  "entry": "public/index.html",
+  "description": "Installable soundboard of Tamil movie comedy dialogues; tap to play, share to WhatsApp",
+  "port": 5350,
+  "open": "http://localhost:5350"
+}
