@@ -4,6 +4,8 @@ A pocket soundboard of Tamil movie comedy dialogues. Tap a card to play it, tap 
 
 **Open it:** https://abhitsian.github.io/meme-petti/
 
+<img src="share-qr.png" width="220" alt="QR code for Meme Petti">
+
 ## Add a clip
 
 1. Add an entry to `clips.json`. Either give a `query` and `match` words (the script searches YouTube and picks the shortest video whose title matches), or a `url` with `start` and `end` (e.g. `"1:23"`).
